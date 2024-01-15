@@ -10,6 +10,7 @@ namespace WebApp.Domain.Repository
     public interface IUnitOfWork : IDisposable
     {
         IEmployeeRepository Employee { get; }
+        IUserRepository User { get; }
         int SaveChanges();
     }
 }

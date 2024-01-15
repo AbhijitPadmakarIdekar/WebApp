@@ -18,9 +18,11 @@ namespace WebApp.DataAccess.Implementation
         {
             _dbContext = dbContext;
             Employee = new EmployeeRepository(dbContext);
+            User = new UserRepository(dbContext);
         }
 
         public IEmployeeRepository Employee { get; set; }
+        public IUserRepository User { get; set; }
 
         public int SaveChanges()
         {

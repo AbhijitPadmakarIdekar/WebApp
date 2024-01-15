@@ -82,6 +82,55 @@ namespace WebApp.DataAccess.Migrations
                             Salary = 200.9f
                         });
                 });
+
+            modelBuilder.Entity("WebApp.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR(20)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserID = 1,
+                            EmailAddress = "AbhjitIdekar@gmail.com",
+                            Password = "12345",
+                            UserName = "Abhijit"
+                        },
+                        new
+                        {
+                            UserID = 2,
+                            EmailAddress = "RameshMali@gmail.com",
+                            Password = "123xyz",
+                            UserName = "Ramesh"
+                        },
+                        new
+                        {
+                            UserID = 3,
+                            EmailAddress = "AkshayJadhav@gmail.com",
+                            Password = "Jadhav1",
+                            UserName = "Akshay"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }
